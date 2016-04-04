@@ -1,6 +1,6 @@
 # Idealogue
 
-See the Idealogue repo for details on this project as a whole. This repo represents the Golang
+See the [Idealogue](https://github.com/davelaursen/idealogue) repo for details on this project as a whole. This repo represents the Golang
 implementation, and exists in its own repo to facilitate Go development.
 
 ## Setup
