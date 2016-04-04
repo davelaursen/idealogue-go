@@ -1,0 +1,25 @@
+<id-header></id-header>
+
+<section>
+    <h1 class="title">Account</h1>
+
+    <ul class="actions">
+        <li><a href="" ng-click="vm.edit()" id-disabling>edit</a></li>
+        <li><a href="" ng-click="vm.remove()" id-disabling>delete</a></li>
+    </ul>
+
+    <div class='view-group'>
+        <div class="view-label"></div>
+        <div class="view-element bottom-border"><h2>{{vm.user.firstName}} {{vm.user.lastName}}</h2></div>
+    </div>
+
+    <div class='view-group'>
+        <div class="view-label">Email</div>
+        <div class="view-element">{{vm.user.email}}</div>
+    </div>
+
+    <div class='view-group'>
+        <div class="view-label">Joined</div>
+        <div class="view-element">{{vm.user.createdDate | date: 'M/dd/yyyy'}}</div>
+    </div>
+</section>

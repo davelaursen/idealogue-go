@@ -1,0 +1,61 @@
+{
+	"ImportPath": "github.com/davelaursen/idealogue-go",
+	"GoVersion": "go1.5",
+	"Deps": [
+		{
+			"ImportPath": "github.com/Sirupsen/logrus",
+			"Comment": "v0.8.7-37-g6f383a9",
+			"Rev": "6f383a9b2998dd6f401704269c3e6e192f6175ad"
+		},
+		{
+			"ImportPath": "github.com/cenkalti/backoff",
+			"Rev": "4dc77674aceaabba2c7e3da25d4c823edfb73f99"
+		},
+		{
+			"ImportPath": "github.com/codegangsta/negroni",
+			"Comment": "v0.1-70-gc7477ad",
+			"Rev": "c7477ad8e330bef55bf1ebe300cf8aa67c492d1b"
+		},
+		{
+			"ImportPath": "github.com/dancannon/gorethink",
+			"Comment": "v1.1.4",
+			"Rev": "6468f77f2e54184f2ff8fec0006c008ac9eca496"
+		},
+		{
+			"ImportPath": "github.com/davelaursen/tranquil",
+			"Rev": "746ed0fb5dfb3bc8fe4a4c425c8fef8ea5878d35"
+		},
+		{
+			"ImportPath": "github.com/golang/protobuf/proto",
+			"Rev": "d3d78384b82d449651d2435ed329d70f7c48aa56"
+		},
+		{
+			"ImportPath": "github.com/gorilla/context",
+			"Rev": "1c83b3eabd45b6d76072b66b746c20815fb2872d"
+		},
+		{
+			"ImportPath": "github.com/gorilla/mux",
+			"Rev": "ad4d7a5882b961e07e2626045eb995c022ac6664"
+		},
+		{
+			"ImportPath": "github.com/gorilla/securecookie",
+			"Rev": "e95799a481bbcc3d01c2ad5178524cb8bec9f370"
+		},
+		{
+			"ImportPath": "github.com/gorilla/sessions",
+			"Rev": "f7261893ca3ea922c30eabe742c036d2c1de6e0a"
+		},
+		{
+			"ImportPath": "github.com/markbates/goth",
+			"Rev": "31a9cfa9284c350a8564ae74abadfa3eb9a1a825"
+		},
+		{
+			"ImportPath": "golang.org/x/net/context",
+			"Rev": "4f2fc6c1e69d41baf187332ee08fbd2b296f21ed"
+		},
+		{
+			"ImportPath": "golang.org/x/oauth2",
+			"Rev": "442624c9ec9243441e83b374a9e22ac549b5c51d"
+		}
+	]
+}

@@ -1,0 +1,4 @@
+{
+	"port": "4000",
+	"db_addresses": ["localhost:2882"]
+}

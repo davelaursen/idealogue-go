@@ -1,0 +1,43 @@
+<div class="site-search fade" ng-show="vm.showLightbox" ng-cloak>
+    <div class="site-search-container">
+        <button type="button" class="inline site-search-close" ng-click="vm.closeSearch()">(close)</button>
+
+        <form ng-submit="vm.executeSearch()">
+            <input class="form-element small" type="text" ng-model="vm.searchStr" id-focus="{{vm.showLightbox}}">
+            <button type="submit" class="hidden"></button>
+        </form>
+
+        <div class="site-search-results">
+            <div>
+                <h2>Ideas</h2>
+                <ul ng-if="vm.ideaResults.length > 0">
+                    <li ng-repeat="idea in vm.ideaResults">
+                        <button ng-click="vm.selectIdea(idea)">
+                            <span class="search-result-name">{{idea.name}}</span>
+                            <span class="search-result-info">{{idea.summary}}</span>
+                            <span class="search-result-info">Score: {{idea.score | number:1}}</span>
+                        </button>
+                    </li>
+                </ul>
+                <span ng-if="vm.ideaResults.length === 0">
+                    No results found
+                </span>
+            </div>
+            <div>
+                <h2>People</h2>
+                <ul ng-if="vm.peopleResults.length > 0">
+                    <li ng-repeat="person in vm.peopleResults">
+                        <button ng-click="vm.selectPerson(person)">
+                            <span class="search-result-name">{{person.firstName}} {{person.lastName}}</span>
+                            <span class="search-result-info">{{person.email}}</span>
+                            <span class="search-result-info">Score: {{person.score | number:1}}</span>
+                        </button>
+                    </li>
+                </ul>
+                <span ng-if="vm.peopleResults.length === 0">
+                    No results found
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

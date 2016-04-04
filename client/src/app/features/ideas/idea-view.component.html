@@ -1,0 +1,77 @@
+<id-header></id-header>
+
+<section>
+    <h1 class="title">Idea Details</h1>
+
+    <ul class="actions">
+        <li><a href="" ng-click="vm.back()" id-disabling>back</a></li>
+        <li><a href="" ng-click="vm.vote()" id-disabling>vote</a></li>
+        <li><a href="" ng-click="vm.edit()" id-disabling>edit</a></li>
+        <li><a href="" ng-click="vm.remove()" id-disabling>delete</a></li>
+    </ul>
+
+    <div ng-show="vm.idea">
+        <div class='view-group'>
+            <div class="view-label"></div>
+            <div class="view-element bottom-border"><h2>{{vm.idea.name}}</h2></div>
+        </div>
+
+        <div class='view-group'>
+            <div class="view-label">Summary</div>
+            <div class="view-element bottom-border">{{vm.idea.summary}}</div>
+        </div>
+
+        <div class='view-group'>
+            <div class="view-label">Benefits</div>
+            <div class="view-element bottom-border">{{vm.idea.benefits}}</div>
+        </div>
+
+        <div class='view-group'>
+            <div class="view-label">Details</div>
+            <div class="view-element bottom-border">{{vm.idea.details}}</div>
+        </div>
+
+        <div class='view-group'>
+            <div class="view-label">Proposers</div>
+            <div class="view-element">{{vm.toList(vm.idea.proposerNames)}}</div>
+        </div>
+
+        <div class='view-group'>
+            <div class="view-label">Skills</div>
+            <div class="view-element">{{vm.toList(vm.idea.skills)}}</div>
+        </div>
+
+        <div class='view-group'>
+            <div class="view-label">Technologies</div>
+            <div class="view-element">{{vm.toList(vm.idea.technologies)}}</div>
+        </div>
+
+        <div class='view-group'>
+            <div class="view-label">Tags</div>
+            <div class="view-element">{{vm.toList(vm.idea.tags)}}</div>
+        </div>
+
+        <div class='view-group'>
+            <div class="view-label">Votes</div>
+            <div class="view-element bottom-border-spaced">{{vm.idea.votes.length}}</div>
+        </div>
+
+        <div class='view-group'>
+            <div class="view-label">Comments</div>
+            <div class="view-element"> <!--ng-controller="IdeaCommentsCtrl">-->
+                <ul class="comment-list">
+                    <li ng-repeat="comment in vm.idea.comments">
+                        <span class="comment-header">{{comment.timestamp | date: 'M/dd/yyyy h:mm a'}}, {{comment.person.firstName}} {{comment.person.lastName}}</span>
+                        <span class="comment-text">{{comment.text}}</span>
+                    </li>
+                    <li ng-show="vm.showNewComment">
+                        <textarea ng-model="vm.newComment" class="form-element comment-new-text" id="newCommentText" rows="1" id-disabling id-auto-size id-focus="{{vm.showNewComment}}"></textarea>
+                        <button type="button" class="inline" ng-click="vm.saveComment()" id-disabling>save</button>
+                        <button type="button" class="inline" ng-click="vm.cancelComment()" id-disabling>cancel</button>
+                    </li>
+                </ul>
+                <button type='button' class="inline add-comment-button" ng-hide="vm.hideAddCommentButton" ng-click="vm.addComment()">add comment</button>
+            </div>
+        </div>
+    </div>
+</section>

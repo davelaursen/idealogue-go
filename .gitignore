@@ -1,0 +1,16 @@
+/client/.vscode
+idealogue
+coverage.out
+node_modules/
+bower_components/
+typings/
+.git/
+client/src/**/*.js
+*.log
+*.tmp
+*.map
+.idea
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db

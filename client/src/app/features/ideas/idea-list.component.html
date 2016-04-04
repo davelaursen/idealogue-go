@@ -1,0 +1,26 @@
+<id-header></id-header>
+
+<section>
+    <h1 class="title">Ideas</h1>
+
+    <ul class="actions">
+        <li><a href="" ng-click="vm.addNew()" id-disabling>new</a></li>
+        <li><a href="" ng-click="vm.reverseSortOrder()" id-disabling>sort</a></li>
+        <li><a href="" ng-click="vm.toggleFilter()" id-disabling>filter</a></li>
+    </ul>
+
+    <id-list-filter show-filter="vm.showFilter" filter-str="vm.filterStr"></id-list-filter>
+
+    <ul class="idea-list">
+        <li ng-repeat="idea in vm.ideas | filter:vm.filterStr">
+            <button ng-click="vm.viewIdea(idea.id)" id-disabling>
+                <span class="idea-list-name">{{idea.name}}</span>
+                <span class="idea-list-summary">{{idea.summary}}</span>
+                <span class="idea-list-info idea-list-info-first">votes: {{idea.votes.length}}</span>
+                <span class="idea-list-info">tags: {{vm.toList(idea.tags)}}</span>
+                <span class="idea-list-info">skills: {{vm.toList(idea.skills)}}</span>
+                <span class="idea-list-info">techs: {{vm.toList(idea.technologies)}}</span>
+            </button>
+        </li>
+    </ul>
+</section>

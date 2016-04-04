@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="/">
+    <title>Idealogue</title>
+
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Reenie+Beanie'>
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300'>
+    <link rel="stylesheet" href="assets/styles/reset.css"/>
+    <link rel="stylesheet" href="assets/styles/idealogue.css"/>
+</head>
+<body>
+
+    <div class="content-wrapper">
+        <div class="content" ui-view></div>
+    </div>
+
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="lib/ngDecorators/decorators.js"></script>
+
+    <script src="app/app.module.js"></script>
+    <script src="app/blocks/data/data.module.js"></script>
+    <script src="app/blocks/exception/exception.module.js"></script>
+    <script src="app/blocks/logger/logger.module.js"></script>
+    <script src="app/blocks/storage/storage.module.js"></script>
+    <script src="app/blocks/router/router.module.js"></script>
+    <script src="app/blocks/util/util.module.js"></script>
+    <script src="app/components/components.module.js"></script>
+    <script src="app/config/config.module.js"></script>
+    <script src="app/core/core.module.js"></script>
+    <script src="app/directives/directives.module.js"></script>
+    <script src="app/features/account/account.module.js"></script>
+    <script src="app/features/ideas/ideas.module.js"></script>
+    <script src="app/features/login/login.module.js"></script>
+    <script src="app/features/people/people.module.js"></script>
+    <script src="app/services/services.module.js"></script>
+
+    <script src="app/blocks/data/data.service.js"></script>
+    <script src="app/blocks/exception/exceptionHandler.provider.js"></script>
+    <script src="app/blocks/logger/logger.provider.js"></script>
+    <script src="app/blocks/storage/storage.service.js"></script>
+    <script src="app/blocks/router/uiRouterHelper.provider.js"></script>
+    <script src="app/blocks/util/util.service.js"></script>
+    <script src="app/components/header.component.js"></script>
+    <script src="app/components/list-filter.component.js"></script>
+    <script src="app/components/person-search.component.js"></script>
+    <script src="app/components/site-search.component.js"></script>
+    <script src="app/config/config.constants.js"></script>
+    <script src="app/core/core.config.js"></script>
+    <script src="app/core/core.route.js"></script>
+    <script src="app/directives/auto-size.directive.js"></script>
+    <script src="app/directives/disabling.directive.js"></script>
+    <script src="app/directives/focus.directive.js"></script>
+    <script src="app/features/account/account-edit.component.js"></script>
+    <script src="app/features/account/account-view.component.js"></script>
+    <script src="app/features/account/account.route.js"></script>
+    <script src="app/features/ideas/idea-edit.component.js"></script>
+    <script src="app/features/ideas/idea-list.component.js"></script>
+    <script src="app/features/ideas/idea-view.component.js"></script>
+    <script src="app/features/ideas/ideas.route.js"></script>
+    <script src="app/features/login/login.component.js"></script>
+    <script src="app/features/login/login.route.js"></script>
+    <script src="app/features/people/people.route.js"></script>
+    <script src="app/features/people/person-list.component.js"></script>
+    <script src="app/features/people/person-view.component.js"></script>
+    <script src="app/services/auth.service.js"></script>
+    <script src="app/services/eventing.service.js"></script>
+    <script src="app/services/idea.service.js"></script>
+    <script src="app/services/skill.service.js"></script>
+    <script src="app/services/tag.service.js"></script>
+    <script src="app/services/technology.service.js"></script>
+    <script src="app/services/user.service.js"></script>
+
+    <script src="app/app.bootstrap.js"></script>
+</body>
+</html>

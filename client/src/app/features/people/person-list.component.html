@@ -1,0 +1,21 @@
+<id-header></id-header>
+
+<section>
+    <h1 class="title">People</h1>
+
+    <ul class="actions">
+        <li><a href="" ng-click="vm.reverseSortOrder()" id-disabling>sort</a></li>
+        <li><a href="" ng-click="vm.toggleFilter()" id-disabling>filter</a></li>
+    </ul>
+
+        <id-list-filter show-filter="vm.showFilter" filter-str="vm.filterStr"></id-list-filter>
+
+    <ul class="person-list">
+        <li ng-repeat="person in vm.people | filter:vm.filterStr">
+            <button ng-click="vm.viewPerson(person.id)" id-disabling>
+                <span class="person-list-full-name">{{person.firstName}} {{person.lastName}}</span>
+                <span class="person-list-info">email: {{person.email}}</span>
+            </button>
+        </li>
+    </ul>
+</section>

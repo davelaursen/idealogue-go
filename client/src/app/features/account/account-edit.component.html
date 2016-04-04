@@ -1,0 +1,41 @@
+<id-header></id-header>
+
+<section>
+    <h1 class="title">Edit Account</h1>
+
+    <ul class="actions">
+        <li><a href="" ng-click="vm.back()" id-disabling>back</a></li>
+    </ul>
+
+    <form name="editAccountForm" ng-submit="vm.save(editAccountForm)" novalidate ng-show="vm.user">
+        <fieldset class="form-group">
+            <label class="form-label" for="userId">Email</label>
+            <input id="userId" ng-model="vm.user.email" class="form-element email disabled" type="text" disabled="disabled">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label class="form-label" for="userFirstName">First Name</label>
+            <input id="userFirstName" name="userFirstName" ng-model="vm.user.firstName" class="form-element name" type="text" ng-class="{'has-error': editAccountForm.userFirstName.$invalid}" id-disabling required>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label class="form-label" for="userLastName">Last Name</label>
+            <input id="userLastName" name="userLastName" ng-model="vm.user.lastName" class="form-element name" type="text" ng-class="{'has-error': editAccountForm.userLastName.$invalid}" id-disabling required>
+        </fieldset>
+
+        <!-- <fieldset class="form-group">
+            <label class="form-label" for="userSkills">Skills</label>
+            <input id="userSkills" class="form-element data" type="text" id-disabling>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label class="form-label" for="userTechnologies">Technologies</label>
+            <input id="userTechnologies" class="form-element data" type="text" id-disabling>
+        </fieldset> -->
+
+        <fieldset class="form-button-group">
+            <button type="submit" class="form-button button-default" id-disabling>save</button>
+            <button type="button" class="form-button" ng-click="vm.back()" id-disabling>cancel</button>
+        </fieldset>
+    </form>
+</section>

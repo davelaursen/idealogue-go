@@ -1,0 +1,20 @@
+<div class="person-search fade" ng-show="vm.showLightbox" ng-cloak>
+    <div class="person-search-container">
+        <form ng-submit="vm.executeSearch()">
+            <input class="form-element small" type="text" ng-model="vm.searchStr" id-focus="{{vm.showLightbox}}">
+            <button type="submit" class="hidden"></button>
+            <button type="button" class="inline person-search-close" ng-click="vm.closeSearch()">(close)</button>
+        </form>
+
+        <div class="person-search-results">
+            <ul>
+                <li ng-repeat="person in vm.searchResults">
+                    <button ng-click="vm.selectPerson(person)">
+                        <span class="person-result-full-name">{{person.firstName}} {{person.lastName}}</span>
+                        <span class="person-result-info">{{person.email}}</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

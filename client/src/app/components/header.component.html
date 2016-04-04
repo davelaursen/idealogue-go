@@ -1,0 +1,27 @@
+<header class="header" ng-show="vm.headerVisible" ng-cloak>
+    <div class="search">
+        <form ng-submit="vm.executeSearch()">
+            <label for="searchValue">search:</label>
+            <input id="searchValue" class="form-element search-value" ng-model="vm.searchValue" type="text" id-disabling>
+        </form>
+    </div>
+    <div class="current-user">
+        logged in as: <span class="username" ng-bind="vm.currentUserName"></span>
+    </div>
+    <nav class="nav">
+        <ul>
+            <li><a href ng-click="vm.goToIdeas()" id-disabling>Ideas</a></li>
+            <li><a href ng-click="vm.goToPeople()" id-disabling>People</a></li>
+            <li><a href ng-click="vm.goToAccount()" id-disabling>Account</a></li>
+            <li><a href ng-click="vm.logout()" id-disabling>Logout</a></li>
+        </ul>
+    </nav>
+</header>
+
+<id-site-search
+    ng-if="vm.searchResultsVisible"
+    search-str="vm.searchValue"
+    show-lightbox="vm.searchResultsVisible"
+    on-select="vm.clearSearchValue()"
+    on-close="vm.clearSearchValue()">
+</id-site-search>

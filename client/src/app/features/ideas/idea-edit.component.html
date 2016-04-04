@@ -1,0 +1,109 @@
+<id-header></id-header>
+
+<section>
+    <h1 class="title">
+        <span ng-if="vm.isCreate">New Idea</span>
+        <span ng-if="!vm.isCreate">Edit Idea</span>
+    </h1>
+
+    <ul class="actions">
+        <li><a href="" ng-click="vm.back()" id-disabling>back</a></li>
+    </ul>
+
+    <form name="editIdeaForm" ng-submit="vm.save(editIdeaForm)" novalidate ng-show="vm.isCreate || vm.idea">
+        <fieldset class="form-group">
+            <label class="form-label" for="ideaName">Name</label>
+            <input id="ideaName" name="ideaName" ng-model="vm.idea.name" class="form-element name" type="text" ng-class="{'has-error': editIdeaForm.ideaName.$invalid}" id-focus id-disabling required>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label class="form-label" for="ideaSummary">Summary</label>
+            <textarea id="ideaSummary" name="ideaSummary" ng-model="vm.idea.summary" class="form-element desc" ng-class="{'has-error': editIdeaForm.ideaSummary.$invalid}" id-disabling required id-auto-size></textarea>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label class="form-label" for="ideaBenefits">Benefits</label>
+            <textarea id="ideaBenefits" name="ideaBenefits" ng-model="vm.idea.benefits" class="form-element desc" ng-class="{'has-error': editIdeaForm.ideaBenefits.$invalid}" id-disabling required id-auto-size></textarea>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label class="form-label" for="ideaDetails">Details</label>
+            <textarea id="ideaDetails" name="ideaDetails" ng-model="vm.idea.details" class="form-element desc" ng-class="{'has-error': editIdeaForm.ideaDetails.$invalid}" id-disabling required id-auto-size></textarea>
+        </fieldset>
+
+        <fieldset class="form-group" ng-if="!vm.isCreate">
+            <label class="form-label" for="ideaProposers">Proposers</label>
+            <ul class="inline-form-list">
+                <li ng-repeat="proposer in vm.idea.proposers">
+                    {{proposer.firstName}} {{proposer.lastName}}
+                    <button type="button" ng-click="vm.removeProposer($index)" id-disabling>x</button>
+                </li>
+            </ul>
+            <button type="button" class="inline-symbol" ng-click="vm.addProposer()" id-disabling>(+)</button>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label class="form-label" for="ideaSkills">Skills</label>
+            <ul class="inline-form-list">
+                <li ng-repeat="skill in vm.idea.skills">
+                    {{skill}}
+                    <button type="button" ng-click="vm.removeSkill($index)" id-disabling>x</button>
+                </li>
+                <li class="skill-new" ng-show="vm.showNewSkill">
+                    <input id="newSkill" list="newSkillData" ng-model="vm.newSkill" class="form-element" type="text" id-disabling id-focus="{{vm.newSkillFocus}}">
+                    <datalist id="newSkillData">
+                        <option ng-repeat="skillVal in vm.skills" value="{{skillVal}}">
+                    </datalist>
+                    <button type="button" class="inline-symbol" ng-click="vm.saveSkill()" id-disabling>(+)</button>
+                    <button type="button" class="inline-symbol" ng-click="vm.cancelSkill()" id-disabling>(x)</button>
+                </li>
+            </ul>
+            <button type="button" class="inline-symbol" ng-click="vm.addSkill()" ng-hide="vm.hideNewSkillButton" id-disabling>(+)</button>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label class="form-label" for="ideaTechnologies">Technologies</label>
+            <ul class="inline-form-list">
+                <li ng-repeat="tech in vm.idea.technologies">
+                    {{tech}}
+                    <button type="button" ng-click="vm.removeTech($index)" id-disabling>x</button>
+                </li>
+                <li class="tech-new" ng-show="vm.showNewTech">
+                    <input id="newTech" list="newTechData" ng-model="vm.newTech" class="form-element" type="text" id-disabling id-focus="{{vm.newTechFocus}}">
+                    <datalist id="newTechData">
+                        <option ng-repeat="techVal in vm.techs" value="{{techVal}}">
+                    </datalist>
+                    <button type="button" class="inline-symbol" ng-click="vm.saveTech()" id-disabling>(+)</button>
+                    <button type="button" class="inline-symbol" ng-click="vm.cancelTech()" id-disabling>(x)</button>
+                </li>
+            </ul>
+            <button type="button" class="inline-symbol" ng-click="vm.addTech()" ng-hide="vm.hideNewTechButton" id-disabling>(+)</button>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label class="form-label" for="ideaTags">Tags</label>
+            <ul class="inline-form-list">
+                <li ng-repeat="tag in vm.idea.tags">
+                    {{tag}}
+                    <button type="button" ng-click="vm.removeTag($index)" id-disabling>x</button>
+                </li>
+                <li class="tag-new" ng-show="vm.showNewTag">
+                    <input id="newTag" list="newTagData" ng-model="vm.newTag" class="form-element" type="text" id-disabling id-focus="{{vm.newTagFocus}}">
+                    <datalist id="newTagData">
+                        <option ng-repeat="tagVal in vm.tags" value="{{tagVal}}">
+                    </datalist>
+                    <button type="button" class="inline-symbol" ng-click="vm.saveTag()" id-disabling>(+)</button>
+                    <button type="button" class="inline-symbol" ng-click="vm.cancelTag()" id-disabling>(x)</button>
+                </li>
+            </ul>
+            <button type="button" class="inline-symbol" ng-click="vm.addTag()" ng-hide="vm.hideNewTagButton" id-disabling>(+)</button>
+        </fieldset>
+
+        <fieldset class="form-button-group">
+            <button type="submit" class="form-button button-default" id-disabling>save</button>
+            <button type="button" class="form-button" ng-click="vm.back()" id-disabling>cancel</button>
+        </fieldset>
+    </form>
+</section>
+
+<id-person-search people="vm.people" show-lightbox="vm.showPersonSearch" on-select="vm.onProposerSelected(person)"></id-person-search>

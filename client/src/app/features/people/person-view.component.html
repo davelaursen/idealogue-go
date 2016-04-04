@@ -1,0 +1,26 @@
+<id-header></id-header>
+
+<section>
+    <h1 class="title">Person Details</h1>
+
+    <ul class="actions">
+        <li><a href="" ng-click="vm.back()" id-disabling>back</a></li>
+    </ul>
+
+    <div ng-show="vm.person">
+        <div class='view-group'>
+            <div class="view-label"></div>
+            <div class="view-element bottom-border"><h2>{{vm.person.firstName}} {{vm.person.lastName}}</h2></div>
+        </div>
+
+        <div class='view-group'>
+            <div class="view-label">Email</div>
+            <div class="view-element">{{vm.person.email}}</div>
+        </div>
+
+        <div class='view-group'>
+            <div class="view-label">Joined</div>
+            <div class="view-element">{{vm.person.createdDate | date: 'M/dd/yyyy'}}</div>
+        </div>
+    </div>
+</section>
