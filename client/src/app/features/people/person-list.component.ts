@@ -10,7 +10,9 @@ namespace app.people {
     /**
      * This component renders the Person List view.
      */
-    @Component('app.people', 'idPersonList', {
+    @Component({
+        module: 'app.people',
+        selector: 'idPersonList',
         templateUrl: 'app/features/people/person-list.component.html',
         controllerAs: 'vm'
     })

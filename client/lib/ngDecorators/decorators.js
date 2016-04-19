@@ -1,16 +1,22 @@
 var ngDecorators;
 (function (ngDecorators) {
     'use strict';
-    function Component(moduleOrName, selector, options) {
+    function Component(options) {
         return function (controller) {
-            var module = typeof moduleOrName === "string" ? angular.module(moduleOrName) : moduleOrName;
+            var module = angular.module(options.module);
+            var selector = options.selector;
+            delete options.module;
+            delete options.selector;
             module.component(selector, angular.extend(options, { controller: controller }));
         };
     }
     ngDecorators.Component = Component;
-    function Directive(moduleOrName, selector, options) {
+    function Directive(options) {
         return function (controller) {
-            var module = typeof moduleOrName === "string" ? angular.module(moduleOrName) : moduleOrName;
+            var module = angular.module(options.module);
+            var selector = options.selector;
+            delete options.module;
+            delete options.selector;
             if (options.require) {
                 options = angular.extend(options, {
                     link: function (scope, element, attrs, ctrl) {
@@ -23,28 +29,28 @@ var ngDecorators;
         };
     }
     ngDecorators.Directive = Directive;
-    function Provider(moduleOrName, selector) {
+    function Provider(options) {
         return function (provider) {
-            var module = typeof moduleOrName === "string" ? angular.module(moduleOrName) : moduleOrName;
-            module.provider(selector, provider);
+            var module = angular.module(options.module);
+            module.provider(options.name, provider);
         };
     }
     ngDecorators.Provider = Provider;
-    function Service(moduleOrName, selector) {
+    function Service(options) {
         return function (service) {
-            var module = typeof moduleOrName === "string" ? angular.module(moduleOrName) : moduleOrName;
-            module.service(selector, service);
+            var module = angular.module(options.module);
+            module.service(options.name, service);
         };
     }
     ngDecorators.Service = Service;
-    function Filter(moduleOrName, selector) {
+    function Filter(options) {
         return function (filter) {
-            var module = typeof moduleOrName === "string" ? angular.module(moduleOrName) : moduleOrName;
+            var module = angular.module(options.module);
             var constructor = function () {
                 var instance = new filter();
                 return instance.filter;
             };
-            module.filter(name, constructor);
+            module.filter(options.name, constructor);
         };
     }
     ngDecorators.Filter = Filter;

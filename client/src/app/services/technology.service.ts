@@ -12,7 +12,10 @@ namespace app.services {
     /**
      * A service that provides functionality for reading/writing technology data.
      */
-    @Service('app.services', 'technologyService')
+    @Service({
+        module: 'app.services',
+        name: 'technologyService'
+    })
     class TechnologyService {
 
         static $inject = ['dataService', 'config'];

@@ -27,7 +27,10 @@ namespace blocks.util {
     /**
      * A service that provides generic utility functions.
      */
-    @Service('blocks.util', 'util')
+    @Service({
+        module: 'blocks.util',
+        name: 'util'
+    })
     class Util implements IUtil {
 
         /**

@@ -28,7 +28,10 @@ namespace blocks.router {
         title?: string;
     }
 
-    @Provider('blocks.router', 'uiRouterHelper')
+    @Provider({
+        module: 'blocks.router',
+        name: 'uiRouterHelper'
+    })
     export class UIRouterHelperProvider implements IUIRouterHelperProvider {
         private _docTitlePrefix: string;
         private _resolveAlways: Object = {};

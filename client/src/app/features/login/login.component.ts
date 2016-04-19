@@ -4,7 +4,9 @@ namespace app.login {
     import Component = ngDecorators.Component;
     import IAuthService = app.services.IAuthService;
 
-    @Component('app.login', 'idLogin', {
+    @Component({
+        module: 'app.login',
+        selector: 'idLogin',
         templateUrl: 'app/features/login/login.component.html',
         controllerAs: 'vm'
     })

@@ -15,7 +15,9 @@ namespace app.ideas {
         id: string
     }
 
-    @Component('app.ideas', 'idIdeaView', {
+    @Component({
+        module: 'app.ideas',
+        selector: 'idIdeaView',
         templateUrl: 'app/features/ideas/idea-view.component.html',
         controllerAs: 'vm'
     })

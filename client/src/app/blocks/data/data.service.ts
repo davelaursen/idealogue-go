@@ -28,7 +28,10 @@ namespace blocks.data {
     /**
      * A service that provides functionality for making HTTP calls to a backend service.
      */
-    @Service('blocks.data', 'dataService')
+    @Service({
+        module: 'blocks.data',
+        name: 'dataService'
+    })
     class DataService implements IDataService {
         static $inject = ['$http', '$q', 'util'];
         constructor(private _$http: ng.IHttpService,

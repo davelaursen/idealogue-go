@@ -2,13 +2,27 @@ namespace ngDecorators {
     'use strict';
 
     export interface IComponentOptions {
+        module: string,
+        selector: string
         template?: string;
         templateUrl?: string;
         bindings?: Object;
         controllerAs?: string;
     }
 
+    export function Component(options: IComponentOptions) {
+        return (controller: Object) => {
+            let module = angular.module(options.module);
+            let selector = options.selector;
+            delete options.module;
+            delete options.selector;
+            module.component(selector, angular.extend(options, { controller: controller }));
+        }
+    }
+
     export interface IDirectiveOptions {
+        module: string,
+        selector: string
         restrict?: string;
         require?: string;
         template?: string;
@@ -17,16 +31,12 @@ namespace ngDecorators {
         controllerAs?: string;
     }
 
-    export function Component(moduleOrName: string | ng.IModule, selector: string, options: IComponentOptions) {
+    export function Directive(options: IDirectiveOptions) {
         return (controller: Object) => {
-            var module = typeof moduleOrName === "string" ? angular.module(moduleOrName) : moduleOrName;
-            module.component(selector, angular.extend(options, { controller: controller }));
-        }
-    }
-
-    export function Directive(moduleOrName: string | ng.IModule, selector: string, options: IDirectiveOptions) {
-        return (controller: Object) => {
-            let module = typeof moduleOrName === "string" ? angular.module(moduleOrName) : moduleOrName;
+            let module = angular.module(options.module);
+            let selector = options.selector;
+            delete options.module;
+            delete options.selector;
             if (options.require) {
                 options = angular.extend(options, {
                     link: function(scope, element, attrs, ctrl) {
@@ -39,28 +49,33 @@ namespace ngDecorators {
         }
     }
 
-    export function Provider(moduleOrName: string | ng.IModule, selector: string) {
+    export interface INamedOptions {
+        module: string,
+        name: string
+    }
+
+    export function Provider(options: INamedOptions) {
         return (provider: any) => {
-            var module = typeof moduleOrName === "string" ? angular.module(moduleOrName) : moduleOrName;
-            module.provider(selector, provider);
+            var module = angular.module(options.module);
+            module.provider(options.name, provider);
         }
     }
 
-    export function Service(moduleOrName: string | ng.IModule, selector: string) {
+    export function Service(options: INamedOptions) {
         return (service: any) => {
-            var module = typeof moduleOrName === "string" ? angular.module(moduleOrName) : moduleOrName;
-            module.service(selector, service);
+            var module = angular.module(options.module);
+            module.service(options.name, service);
         }
     }
 
-    export function Filter(moduleOrName: string | ng.IModule, selector: string) {
+    export function Filter(options: INamedOptions) {
         return (filter: any) => {
-            var module = typeof moduleOrName === "string" ? angular.module(moduleOrName) : moduleOrName;
+            var module = angular.module(options.module);
             var constructor = function() {
                 let instance = new filter();
                 return instance.filter;
             };
-            module.filter(name, constructor);
+            module.filter(options.name, constructor);
         }
     }
 

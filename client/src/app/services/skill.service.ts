@@ -12,7 +12,10 @@ namespace app.services {
     /**
      * A service that provides functionality for reading/writing skill data.
      */
-    @Service('app.services', 'skillService')
+    @Service({
+        module: 'app.services',
+        name: 'skillService'
+    })
     class SkillService {
 
         static $inject = ['dataService', 'config'];

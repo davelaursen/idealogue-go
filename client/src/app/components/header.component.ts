@@ -9,7 +9,9 @@ namespace app.components {
     /**
      * This component renders the application header.
      */
-    @Component('app.components', 'idHeader', {
+    @Component({
+        module: 'app.components',
+        selector: 'idHeader',
         templateUrl: 'app/components/header.component.html',
         controllerAs: 'vm'
     })

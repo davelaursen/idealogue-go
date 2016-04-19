@@ -14,7 +14,10 @@ namespace app.services {
     /**
      * A service that provides custom eventing functionality.
      */
-    @Service('app.services', 'eventingService')
+    @Service({
+        module: 'app.services',
+        name: 'eventingService'
+    })
     class EventingServicee {
         private _listeners = {};
 

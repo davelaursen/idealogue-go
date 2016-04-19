@@ -17,7 +17,10 @@ namespace app.services {
     /**
      * A service that provides authorization functionality.
      */
-    @Service('app.services', 'authService')
+    @Service({
+        module: 'app.services',
+        name: 'authService'
+    })
     class AuthService implements IAuthService {
         static $inject = ['dataService', 'sessionStorageService', 'util', 'config', 'eventingService'];
         constructor(private _dataService: IDataService,

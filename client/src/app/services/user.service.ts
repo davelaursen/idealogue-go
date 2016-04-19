@@ -32,7 +32,10 @@ namespace app.services {
     /**
      * A service that provides functionality for reading/writing user data.
      */
-    @Service('app.services', 'userService')
+    @Service({
+        module: 'app.services',
+        name: 'userService'
+    })
     class UserService {
 
         static $inject = ['dataService', 'util', 'config'];

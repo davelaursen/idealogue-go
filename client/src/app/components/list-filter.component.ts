@@ -6,7 +6,9 @@ namespace app.components {
     /**
      * This component renders a filter field for a list.
      */
-    @Component('app.components', 'idListFilter', {
+    @Component({
+        module: 'app.components',
+        selector: 'idListFilter',
         templateUrl: 'app/components/list-filter.component.html',
         bindings: {
             showFilter: '=',

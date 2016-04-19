@@ -89,7 +89,10 @@ namespace blocks.storage {
         }
     }
 
-    @Service('blocks.storage', 'sessionStorageService')
+    @Service({
+        module: 'blocks.storage',
+        name: 'sessionStorageService'
+    })
     class SessionStorageService extends StorageService {
         static $inject = ['util'];
         constructor(util: IUtil) {
@@ -97,7 +100,10 @@ namespace blocks.storage {
         }
     }
 
-    @Service('blocks.storage', 'localStorageService')
+    @Service({
+        module: 'blocks.storage',
+        name: 'localStorageService'
+    })
     class LocalStorageService extends StorageService {
         static $inject = ['util'];
         constructor(util: IUtil) {

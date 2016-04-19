@@ -25,7 +25,10 @@ namespace blocks.logger {
         customAction(actionFn?: Function): Function|LoggerProvider;
     }
 
-    @Provider('blocks.logger', 'logger')
+    @Provider({
+        module: 'blocks.logger',
+        name: 'logger'
+    })
     class LoggerProvider implements ILoggerProvider {
         private _currentLevel = 'error';
         private _consoleLogging = false;

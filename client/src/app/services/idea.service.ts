@@ -38,7 +38,10 @@ namespace app.services {
     /**
      * A service that provides functionality for reading/writing idea data.
      */
-    @Service('app.services', 'ideaService')
+    @Service({
+        module: 'app.services',
+        name: 'ideaService'
+    })
     class IdeaService {
 
         static $inject = ['dataService', 'util', 'config'];

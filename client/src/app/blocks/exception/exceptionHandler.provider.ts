@@ -21,7 +21,10 @@ namespace blocks.exception {
         customAction(actionFn?: Function): Function|ExceptionHandlerProvider;
     }
 
-    @Provider('blocks.exception', 'exceptionHandler')
+    @Provider({
+        module: 'blocks.exception',
+        name: 'exceptionHandler'
+    })
     class ExceptionHandlerProvider implements IExceptionHandlerProvider {
         private _msgPrefix = '';
         private _noop = function() {};

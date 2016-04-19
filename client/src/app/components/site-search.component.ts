@@ -12,7 +12,9 @@ namespace app.components {
     /**
      * This component renders the site search lightbox.
      */
-    @Component('app.components', 'idSiteSearch', {
+    @Component({
+        module: 'app.components',
+        selector: 'idSiteSearch',
         templateUrl: 'app/components/site-search.component.html',
         bindings: {
             searchStr: '<',

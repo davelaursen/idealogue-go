@@ -14,7 +14,9 @@ namespace app.people {
     /**
      * This component renders the Person Detail view.
      */
-    @Component('app.people', 'idPersonView', {
+    @Component({
+        module: 'app.people',
+        selector: 'idPersonView',
         templateUrl: 'app/features/people/person-view.component.html',
         controllerAs: 'vm'
     })

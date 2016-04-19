@@ -10,7 +10,9 @@ namespace app.account {
     /**
      * This component renders the Account Details view.
      */
-    @Component('app.account', 'idAccountView', {
+    @Component({
+        module: 'app.account',
+        selector: 'idAccountView',
         templateUrl: 'app/features/account/account-view.component.html',
         controllerAs: 'vm'
     })

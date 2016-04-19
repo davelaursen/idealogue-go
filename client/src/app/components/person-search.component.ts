@@ -13,7 +13,9 @@ namespace app.components {
     /**
      * This component renders the person search lightbox.
      */
-    @Component('app.components', 'idPersonSearch', {
+    @Component({
+        module: 'app.components',
+        selector: 'idPersonSearch',
         templateUrl: 'app/components/person-search.component.html',
         bindings: {
             people: '=',

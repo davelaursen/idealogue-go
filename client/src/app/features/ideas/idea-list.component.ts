@@ -7,7 +7,9 @@ namespace app.ideas {
     import IIdeaService = app.services.IIdeaService;
     import IIdea = app.services.IIdea;
 
-    @Component('app.ideas', 'idIdeaList', {
+    @Component({
+        module: 'app.ideas',
+        selector: 'idIdeaList',
         templateUrl: 'app/features/ideas/idea-list.component.html',
         controllerAs: 'vm'
     })

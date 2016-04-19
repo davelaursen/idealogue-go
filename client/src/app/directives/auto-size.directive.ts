@@ -3,7 +3,10 @@ namespace app.directives {
 
     import Directive = ngDecorators.Directive;
 
-    @Directive('app.directives', 'idAutoSize', {})
+    @Directive({
+        module: 'app.directives',
+        selector: 'idAutoSize'
+    })
     class AutoSizeDirective {
 
         static $inject = ['$element', '$timeout'];

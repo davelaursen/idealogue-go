@@ -11,7 +11,9 @@ namespace app.account {
     /**
      * This component renders the Edit Account view.
      */
-    @Component('app.account', 'idAccountEdit', {
+    @Component({
+        module: 'app.account',
+        selector: 'idAccountEdit',
         templateUrl: 'app/features/account/account-edit.component.html',
         controllerAs: 'vm'
     })

@@ -12,7 +12,10 @@ namespace app.services {
     /**
      * A service that provides functionality for reading/writing tag data.
      */
-    @Service('app.services', 'tagService')
+    @Service({
+        module: 'app.services',
+        name: 'tagService'
+    })
     class TagService {
 
         static $inject = ['dataService', 'config'];

@@ -3,7 +3,10 @@ namespace app.directives {
 
     import Directive = ngDecorators.Directive;
 
-    @Directive('app.directives', 'idDisabling', {})
+    @Directive({
+        module: 'app.directives',
+        selector: 'idDisabling'
+    })
     class AutoSizeDirective {
 
         static $inject = ['$scope', '$element'];

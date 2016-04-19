@@ -10,7 +10,9 @@ namespace app.directives {
     /**
      * This directive automatically puts focus on an element when it attached to the DOM.
      */
-    @Directive('app.directives', 'idFocus', {
+    @Directive({
+        module: 'app.directives',
+        selector: 'idFocus',
         scope: {
             idFocus: '@'
         }
